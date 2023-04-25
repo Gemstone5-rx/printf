@@ -11,18 +11,25 @@
 #define BUFF_SIZE 1024
 
 /**
- * struct format - structure for format
- * @format: The format to be used
- * @f: associated function
+ * struct printt - structure for printing various types
+ * @type: type to print
+ * @function: associated function to print
  */
 
-struct format
+struct print
 {
-	char *format
-	int (*f)(va_list);
+	char *type;
+	int (*function)(va_list);
 };
-typedef struct format forma_t;
+typedef struct print print_t;
 
 int _printf(const char *format, ...);
+int _putchar(char c);
+int print_char(va_list c);
+int print_string(va_list s);
+int print_percent(va_list %);
+int print_decimal(va_list d);
+int print_int(va_list i);
+
 
 #endif
